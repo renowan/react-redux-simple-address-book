@@ -1,0 +1,18 @@
+.home-view{
+    margin-top: 120px;
+
+    text-align: center;
+
+    .lead-txt{
+        font-size: 16px;
+        line-height: 2.6rem;
+        margin-bottom: 30px;
+    }
+}
+
+
+@media (min-width: 768px) {
+    // .home-view{
+    //     margin-top: 280px;
+    // }
+}
