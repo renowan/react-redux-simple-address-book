@@ -11,14 +11,14 @@ react, redeux, webpackの設定もろもろは[/davezuko/react-redux-starter-kit
 
 ### Install
 clone  
-`git clone git@github.com:renowan/react-redux-simple-address-book.git`
-npm モジュール
-`npm install`
-開発環境を起動
+`git clone git@github.com:renowan/react-redux-simple-address-book.git`  
+npm モジュール  
+`npm install`  
+開発環境を起動  
 `npm start`
 
 ### アップロード用に書き出す
-`npm run deploy:prod`
+`npm run deploy:prod`  
 
-reactとreduxを触ったことがない人でも
+reactとreduxを触ったことがない人でも  
 幸せなreact＋reduxライフを送れるように
