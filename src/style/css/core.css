@@ -9,7 +9,7 @@
 a,
 a:focus,
 a:hover {
-    color: #fff;
+    color: #a4a4a4;
 }
 
 /* Custom default button */
@@ -89,4 +89,9 @@ body {
 .masthead-nav > .active > a:focus {
     color: #fff;
     border-bottom-color: #fff;
+}
+
+.page-body{
+    min-height: 360px;
+    margin-bottom: 40px;
 }
