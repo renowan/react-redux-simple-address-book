@@ -3,6 +3,7 @@ import { routerReducer as router } from 'react-router-redux'
 
 import app from 'redux/modules/app'
 import personal from 'redux/modules/personal'
+import company from 'redux/modules/company'
 
 export const reducers = (asyncReducers) => {
   return combineReducers({
@@ -10,6 +11,7 @@ export const reducers = (asyncReducers) => {
     router,
     app,
     personal,
+    company,
     ...asyncReducers
   })
 }

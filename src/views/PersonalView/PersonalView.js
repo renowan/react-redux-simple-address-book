@@ -14,6 +14,8 @@ export class PersonalView extends React.Component<void, Props, void> {
 
     }
 
+    // コンポーネントがマウントされる直前にこの関数が実行される
+    // ページの最初に実行したいものはここに書くといいでしょう
     componentWillMount() {
         // jsonをロード
         this.props.personalAction.loadJson();
@@ -37,13 +39,13 @@ export class PersonalView extends React.Component<void, Props, void> {
             // Loadingが終わったらコンテンツを出す
 
             // テーブルのtrを生成
-
             let tableList = this.props.personal.list.map((elm, index) => {
                 return (
                     <tr key={`list-${index}`}>
                         <td>{elm.id}</td>
                         <td>{elm.name}</td>
                         <td>{elm.kani}</td>
+                        <td>{elm.age}</td>
                         <td>{elm.tel}</td>
                     </tr>
                 );
@@ -59,17 +61,21 @@ export class PersonalView extends React.Component<void, Props, void> {
                                     <th className="id">ID</th>
                                     <th className="name">名前</th>
                                     <th className="kani">官位</th>
+                                    <th className="age">年齢</th>
                                     <th className="tel">電話番号</th>
                                 </tr>
                             </thead>
                             <tbody>
+
+                                {/*生成したtrを入れる*/}
                                 {tableList}
+
                             </tbody>
                         </table>
+
                 </div>
             )
         }
-
     }
 }
 

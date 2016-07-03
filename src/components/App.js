@@ -49,7 +49,7 @@ class App extends Component {
                   <div className="inner">
                     <p>
                         Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.<br/>
-                        This project is fork from <a href="https://github.com/davezuko/react-redux-starter-kit">davezuko / react-redux-starter-kit</a>
+                        This project base is <a href="https://github.com/davezuko/react-redux-starter-kit">davezuko / react-redux-starter-kit</a>
                     </p>
                   </div>
                 </div>
