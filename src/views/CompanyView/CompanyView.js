@@ -58,7 +58,7 @@ export class CompanyView extends React.Component<void, Props, void> {
                                 <tr>
                                     <th className="id">ID</th>
                                     <th className="name">藩名</th>
-                                    <th className="kani">官位</th>
+                                    <th className="kani">代表</th>
                                     <th className="age">石高</th>
                                     <th className="tel">電話番号</th>
                                 </tr>

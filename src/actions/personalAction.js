@@ -23,7 +23,7 @@ export function loadJson(data) {
             data: null
         });
 
-        axiosInstance.get('/json/dmmy-personal-list.json').then((response) => {
+        axiosInstance.get('json/dmmy-personal-list.json').then((response) => {
 
             // データ到着
 
