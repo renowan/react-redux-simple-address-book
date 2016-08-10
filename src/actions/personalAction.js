@@ -12,6 +12,8 @@ export const PERSONAL_LOAD_JSON_REQUEST = 'PERSONAL_LOAD_JSON_REQUEST'
 // データが取得できたaction
 export const PERSONAL_LOAD_JSON_RECEIVE = 'PERSONAL_LOAD_JSON_RECEIVE'
 
+let rootPath = __PROD__ ? '/react-redux-simple-address-book/' : '/';
+
 export function loadJson(data) {
     return dispatch => {
 
@@ -23,7 +25,7 @@ export function loadJson(data) {
             data: null
         });
 
-        axiosInstance.get('json/dmmy-personal-list.json').then((response) => {
+        axiosInstance.get(`${rootPath}json/dmmy-personal-list.json`).then((response) => {
 
             // データ到着
 

@@ -12,6 +12,8 @@ export const COMPANY_LOAD_JSON_REQUEST = 'COMPANY_LOAD_JSON_REQUEST'
 // データが取得できたaction
 export const COMPANY_LOAD_JSON_RECEIVE = 'COMPANY_LOAD_JSON_RECEIVE'
 
+let rootPath = __PROD__ ? '/react-redux-simple-address-book/' : '/';
+
 export function loadJson(data) {
     return dispatch => {
 
@@ -23,7 +25,7 @@ export function loadJson(data) {
             data: null
         });
 
-        axiosInstance.get('json/dmmy-company-list.json').then((response) => {
+        axiosInstance.get(`${rootPath}json/dmmy-company-list.json`).then((response) => {
 
             // データ到着
 

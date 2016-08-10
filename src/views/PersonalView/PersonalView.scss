@@ -2,10 +2,10 @@
 
     .table{
         .id{
-            width: 80px;
+            width: 60px;
         }
         .name{
-            width: 160px;
+            width: 100px;
         }
         .kani{
             width: 160px;
@@ -13,6 +13,17 @@
         .age{
             width: 80px;
         }
+    }
+
+    .info{
+        margin-bottom: 10px;
+    }
+
+    .edit{
+        min-height: 250px;
+        border-left: 1px solid #ddd;
+        padding-left: 20px;
+        line-height: 2;
     }
 
 }

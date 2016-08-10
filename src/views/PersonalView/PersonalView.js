@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as personalAction from 'actions/personalAction'
-
+import EditBox from './EditBox'
 import './PersonalView.scss'
 
 
@@ -12,6 +12,11 @@ export class PersonalView extends React.Component<void, Props, void> {
     constructor(props) {
         super(props);
 
+        this.state = {
+            editTarget: undefined
+        }
+
+        this.edit = this.edit.bind(this);
     }
 
     // コンポーネントがマウントされる直前にこの関数が実行される
@@ -19,6 +24,16 @@ export class PersonalView extends React.Component<void, Props, void> {
     componentWillMount() {
         // jsonをロード
         this.props.personalAction.loadJson();
+    }
+
+    edit(id){
+        console.log(id);
+        this.props.personal.list.map((elm) => {
+            if(elm.id === id){
+                this.setState({editTarget: elm});
+            }
+        });
+
     }
 
     render () {
@@ -47,6 +62,7 @@ export class PersonalView extends React.Component<void, Props, void> {
                         <td>{elm.kani}</td>
                         <td>{elm.age}</td>
                         <td>{elm.tel}</td>
+                        <td><button className="btn btn-default btn-xs" onClick={()=>{this.edit(elm.id)}}>修正</button></td>
                     </tr>
                 );
             });
@@ -55,23 +71,38 @@ export class PersonalView extends React.Component<void, Props, void> {
                 <div className="personal-view">
                     <h4 className="cover-heading">個人リスト - 人数: {this.props.personal.list.length}</h4>
 
-                        <table className="table">
-                            <thead>
-                                <tr>
-                                    <th className="id">ID</th>
-                                    <th className="name">名前</th>
-                                    <th className="kani">官位</th>
-                                    <th className="age">年齢</th>
-                                    <th className="tel">電話番号</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                    <div className="row">
+                        <div className="col-xs-8">
 
-                                {/*生成したtrを入れる*/}
-                                {tableList}
+                            <table className="table">
+                                <thead>
+                                    <tr>
+                                        <th className="id">ID</th>
+                                        <th className="name">名前</th>
+                                        <th className="kani">官位</th>
+                                        <th className="age">年齢</th>
+                                        <th className="tel">電話番号</th>
+                                        <th className="">編集</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                            </tbody>
-                        </table>
+                                    {/*生成したtrを入れる*/}
+                                    {tableList}
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div className="col-xs-4">
+
+                            <EditBox
+                                people={this.state.editTarget}
+                            />
+
+                        </div>
+                    </div>
 
                 </div>
             )
