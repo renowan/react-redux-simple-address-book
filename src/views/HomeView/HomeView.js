@@ -12,8 +12,6 @@ export class HomeView extends React.Component<void, Props, void> {
 
     constructor(props) {
         super(props);
-
-        console.log(this.props);
     }
 
     render () {

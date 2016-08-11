@@ -53,6 +53,32 @@ export function loadJson(data) {
     }
 }
 
+
+
+export const PERSONAL_UPDATA_TEL = 'PERSONAL_UPDATA_TEL';
+export function updataTel(id, tel) {
+    return (dispatch, getStore) => {
+        console.log(getStore().personal);
+        console.log(id, tel);
+
+        let personal = getStore().personal;
+
+        personal.list.map((elm, index)=>{
+            if(elm.id === id){
+                elm.tel = tel
+            }
+        });
+
+        dispatch({
+            type: PERSONAL_UPDATA_TEL,
+            data: personal.list
+        })
+
+        console.log(personal.list);
+
+    }
+}
+
 function jsonReceive(){
     console.log('9999999');
 }

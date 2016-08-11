@@ -11,20 +11,26 @@ class EditBox extends Component {
         }
 
         this._onChange = this._onChange.bind(this);
-        this.save = this.save.bind(this);
+        this.onSave = this.onSave.bind(this);
     }
 
-    _onChange(value){
-        console.log(value);
+    componentWillReceiveProps(nextProps){
+
+        if(this.props.people === undefined || nextProps.people.id !== this.props.people.id){
+            this.setState({tel: nextProps.people.tel});
+        }
     }
 
-    save(){
 
+    _onChange(e){
+        this.setState({tel: e.target.value});
+    }
+
+    onSave(){
+        this.props.onSave(this.props.people.id, this.state.tel);
     }
 
     render () {
-
-        console.log(this.state.tel);
 
         const people = this.props.people;
 
@@ -40,13 +46,13 @@ class EditBox extends Component {
                     </div>
 
                     <label>電話番号</label>
-                    <div className="form-inline">
+                    <div className="form">
                         <div className="form-group">
                             <label className="sr-only">電話番号</label>
-                            <input type="text" className="form-control" placeholder="電話番号" value={this.state.tel} onChange={this._onChange} />
+                            <input type="text" className="form-control" placeholder="電話番号" value={this.state.tel || ''} onChange={this._onChange} />
                         </div>
                         {' '}
-                        <button className="btn btn-default" onClick={this.save}>保存</button>
+                        <button className="btn btn-default" onClick={this.onSave}>保存</button>
                     </div>
                 </div>
             );
@@ -58,7 +64,8 @@ class EditBox extends Component {
 }
 
 EditBox.propTypes = {
-    people: React.PropTypes.object
+    people: React.PropTypes.object,
+    onSave: React.PropTypes.func
 }
 
 export default EditBox

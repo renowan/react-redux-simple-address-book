@@ -22,6 +22,12 @@ export default function personal(state = initialState, action) {
                 isLoading: false,
             });
 
+        // Telの更新
+        case personalActions.PERSONAL_UPDATA_TEL:
+            return Object.assign({}, state, {
+                list: action.data,
+            });
+
         default:
           return state
     }

@@ -10,20 +10,6 @@ class GlobalHeader extends Component {
 
     render () {
 
-
-        // let pathName = this.props.location.pathname;
-        // console.log(pathName);
-
-        // <li className={pathName === '/' ? 'action' : ''}>
-        //     <Link to='/'>Home</Link>
-        // </li>
-        // <li className={pathName === '/pnl' ? 'action' : ''}>
-        //     <Link to='/pnl'>Personal</Link>
-        // </li>
-        // <li className={pathName === '/company' ? 'action' : ''}>
-        //     <Link to='/company'>Company</Link>
-        // </li>
-
         return (
             <div className="masthead clearfix">
                 <div className="inner">
@@ -31,13 +17,13 @@ class GlobalHeader extends Component {
                     <nav>
                         <ul className="nav masthead-nav">
                             <li className="dd">
-                                <Link to='/'>Home</Link>
+                                <Link to={'${basePath}/'}>Home</Link>
                             </li>
                             <li>
-                                <Link to='/pnl'>Personal</Link>
+                                <Link to={`${basePath}/pnl`}>Personal</Link>
                             </li>
                             <li>
-                                <Link to='/company'>Company</Link>
+                                <Link to={`${basePath}/company`}>Company</Link>
                             </li>
                         </ul>
                     </nav>

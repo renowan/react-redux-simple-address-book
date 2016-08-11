@@ -8,12 +8,14 @@ import PersonalView from 'views/PersonalView/PersonalView'
 import CompanyView from 'views/CompanyView/CompanyView'
 import ErrorView from 'views/ErrorView/ErrorView'
 
+const basePath = __PROD__ ? '/react-redux-simple-address-book' : '';
+
 export default (store) => (
     <Router history={browserHistory}>
-        <Route path='/' component={App}>
+        <Route path={`${basePath}/`} component={App}>
             <IndexRoute component={HomeView} />
-            <Route path='/pnl' component={PersonalView} />
-            <Route path='/company' component={CompanyView} />
+            <Route path={`${basePath}/pnl`} component={PersonalView} />
+            <Route path={`${basePath}/company`} component={CompanyView} />
         </Route>
         <Route path='*' component={App}>
             <IndexRoute component={ErrorView} />

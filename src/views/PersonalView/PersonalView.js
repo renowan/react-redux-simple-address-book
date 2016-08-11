@@ -17,6 +17,7 @@ export class PersonalView extends React.Component<void, Props, void> {
         }
 
         this.edit = this.edit.bind(this);
+        this.onSave = this.onSave.bind(this);
     }
 
     // コンポーネントがマウントされる直前にこの関数が実行される
@@ -27,13 +28,15 @@ export class PersonalView extends React.Component<void, Props, void> {
     }
 
     edit(id){
-        console.log(id);
         this.props.personal.list.map((elm) => {
             if(elm.id === id){
                 this.setState({editTarget: elm});
             }
         });
+    }
 
+    onSave(id, value){
+        this.props.personalAction.updataTel(id, value);
     }
 
     render () {
@@ -72,7 +75,7 @@ export class PersonalView extends React.Component<void, Props, void> {
                     <h4 className="cover-heading">個人リスト - 人数: {this.props.personal.list.length}</h4>
 
                     <div className="row">
-                        <div className="col-xs-8">
+                        <div className="col-xs-9">
 
                             <table className="table">
                                 <thead>
@@ -82,7 +85,7 @@ export class PersonalView extends React.Component<void, Props, void> {
                                         <th className="kani">官位</th>
                                         <th className="age">年齢</th>
                                         <th className="tel">電話番号</th>
-                                        <th className="">編集</th>
+                                        <th className="edit-col">編集</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -95,10 +98,11 @@ export class PersonalView extends React.Component<void, Props, void> {
 
                         </div>
 
-                        <div className="col-xs-4">
+                        <div className="col-xs-3">
 
                             <EditBox
                                 people={this.state.editTarget}
+                                onSave={this.onSave}
                             />
 
                         </div>

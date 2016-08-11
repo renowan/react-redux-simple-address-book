@@ -5,6 +5,8 @@ import {history, browserHistory, Link} from 'react-router'
 
 import 'style/css/core.css'
 
+const basePath = __PROD__ ? '/react-redux-simple-address-book' : '';
+
 class App extends Component {
     constructor (props) {
         super(props)
@@ -26,13 +28,13 @@ class App extends Component {
                         <nav>
                             <ul className="nav masthead-nav">
                                 <li className={pathName === '/' ? 'active' : ''}>
-                                    <Link to='/'>Home</Link>
+                                    <Link to={`${basePath}/`}>Home</Link>
                                 </li>
                                 <li className={pathName === '/pnl' ? 'active' : ''}>
-                                    <Link to='/pnl'>Personal</Link>
+                                    <Link to={`${basePath}/pnl`}>Personal</Link>
                                 </li>
                                 <li className={pathName === '/company' ? 'active' : ''}>
-                                    <Link to='/company'>Company</Link>
+                                    <Link to={`${basePath}/company`}>Company</Link>
                                 </li>
                             </ul>
                         </nav>

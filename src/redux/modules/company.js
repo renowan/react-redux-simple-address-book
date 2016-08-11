@@ -7,12 +7,11 @@ const initialState = {
 }
 
 export default function company(state = initialState, action) {
-    
+
     switch (action.type) {
 
         // JSONロード開始（Loadingを出す）
         case companyActions.COMPANY_LOAD_JSON_REQUEST:
-            console.log('COMPANY_LOAD_JSON_REQUEST');
             return Object.assign({}, state, {
                 isLoading: true,
             });
